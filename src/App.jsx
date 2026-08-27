@@ -126,8 +126,7 @@ function Header({ lang, data, setLanguage, navigate, isCaseStudy = false }) {
     <header className="site-header">
       <div className="header-inner shell">
         <a className="wordmark" href={home} onClick={(event) => { event.preventDefault(); navigate(home); }} aria-label={`${profile.name} home`}>
-          <span className="wordmark-mark">E</span>
-          <span className="wordmark-name">Eliah <em>Dimmed</em></span>
+          <span className="wordmark-name">Eliah Dimmed</span>
         </a>
         <nav className={`nav ${open ? 'nav--open' : ''}`} aria-label="Primary navigation">
           {links.map((link) => (
@@ -463,7 +462,7 @@ function Footer({ data }) {
   return (
     <footer className="footer">
       <div className="shell footer-inner">
-        <div><span className="footer-mark">E</span><p>© {new Date().getFullYear()} {profile.name}<small>{data.note}</small></p></div>
+        <div><p>© {new Date().getFullYear()} {profile.name}<small>{data.note}</small></p></div>
         <div className="footer-links"><a href={profile.github} target="_blank" rel="noreferrer">GitHub</a><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href="#top">{data.top} ↑</a></div>
       </div>
     </footer>
