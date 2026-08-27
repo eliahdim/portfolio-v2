@@ -24,4 +24,4 @@ Kontaktformuläret använder `VITE_FORMSPREE_ENDPOINT`. Den nuvarande Formspree-
 
 ## Bilder och CV
 
-Instruktioner för framtida bilder finns i `public/images/README.md`. CV-filen ska ligga i `public/files/eliah-dimmed-cv.pdf`.
+Instruktioner för framtida bilder finns i `public/images/README.md`. CV-knappen använder tillfälligt PDF-filen från Portfolio V1. När ett nytt CV läggs i `public/files/eliah-dimmed-cv.pdf` byts `profile.cv` i `src/content.js` till den lokala sökvägen.

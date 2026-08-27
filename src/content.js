@@ -5,7 +5,8 @@ export const profile = {
   location: 'Tyringe, Skåne',
   github: 'https://github.com/eliahdim',
   linkedin: 'https://www.linkedin.com/in/eliah-dimmed/',
-  cv: '/files/eliah-dimmed-cv.pdf',
+  // Temporary fallback to the current CV on Portfolio V1 until a new PDF is added to this repository.
+  cv: 'https://eliahdimmed.vercel.app/files/eliah-dimmed-cv.pdf',
 };
 
 const sharedProjects = {
