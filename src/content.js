@@ -15,7 +15,7 @@ const sharedProjects = {
     number: '01',
     year: '2025',
     accent: 'lime',
-    image: null,
+    image: 'trustscribe',
     links: {
       github: 'https://github.com/NTIG-Helsingborg/TE4_25-26_Skolverket-transkribering',
     },
@@ -26,7 +26,7 @@ const sharedProjects = {
     number: '02',
     year: '2026',
     accent: 'cobalt',
-    image: null,
+    image: 'campaignforge',
     links: {},
     stack: ['JavaScript', 'AI workflows', 'Prompt design', 'E-commerce', 'UX'],
   },
@@ -35,7 +35,7 @@ const sharedProjects = {
     number: '03',
     year: '2026',
     accent: 'coral',
-    image: null,
+    image: 'one-percent',
     links: {
       github: 'https://github.com/eliahdim/1Percent',
     },
@@ -205,7 +205,7 @@ export const content = {
           description:
             'Byggde en bred teknisk grund inom programmering, webbutveckling och digital teknik. Avslutade utbildningen med ett egenutvecklat 2D-spel i Unity.',
           skills: ['Programmering', 'Webb', 'C# / Unity'],
-          image: null,
+          image: 'hts',
         },
         {
           period: 'JUL 2024 — JUL 2025',
@@ -215,7 +215,7 @@ export const content = {
           description:
             'Arbetade med installation, driftsättning och felsökning av fiber- och nätverksinfrastruktur i bostadsmiljöer. Arbetet omfattade fiberblåsning och fibersvetsning, CAT6, mediaskåp, routrar, TV-utrustning, felavhjälpning och direkt kundkontakt.',
           skills: ['Fiber', 'CAT6', 'Felsökning', 'Kundkontakt'],
-          image: null,
+          image: 'fiber',
         },
         {
           period: 'AUG 2025 — JUN 2026',
@@ -225,7 +225,7 @@ export const content = {
           description:
             'Ett intensivt år med mjukvarudesign, databaser, API:er, arkitektur, agila arbetssätt och projekt för verkliga användningsområden.',
           skills: ['React', 'Python', 'Databaser', 'Agilt arbete'],
-          image: null,
+          image: 'te4',
         },
         {
           period: 'SEP — NOV 2025',
@@ -235,7 +235,7 @@ export const content = {
           description:
             'Utvecklade ett lokalt AI-verktyg för säker transkribering tillsammans med ett TE4-team och arbetade utifrån krav från en extern uppdragsgivare.',
           skills: ['Python', 'Lokal AI', 'Kravarbete', 'Presentation'],
-          image: null,
+          image: 'trustscribe',
         },
         {
           period: 'FEB — MAR 2026',
@@ -245,7 +245,7 @@ export const content = {
           description:
             'Arbetade med webb, visuell design och planering av ett internt skolsystem för närvaro och schemaläggning i en engelskspråkig miljö.',
           skills: ['Engelska', 'Webb', 'Design', 'Anpassningsförmåga'],
-          image: null,
+          image: 'malta',
         },
         {
           period: 'MAR — MAJ 2026',
@@ -255,7 +255,7 @@ export const content = {
           description:
             'Utvecklade CopyForge, ConversionLens och CampaignForge från idé och krav till prototyp, test och förbättring efter feedback.',
           skills: ['AI-flöden', 'E-handel', 'UX', 'Självständigt arbete'],
-          image: null,
+          image: 'zynq',
         },
       ],
     },
@@ -468,12 +468,12 @@ export const content = {
       intro: 'My route has not been linear — and that is a strength. Every step has added another layer of technical understanding, responsibility and communication.',
       previous: 'Previous experience', next: 'Next experience', placeholder: 'Image coming',
       items: [
-        { period: '2021 — 2024', title: 'Technology Programme', place: 'Hässleholm Technical School', type: 'Education', description: 'Built a broad technical foundation in programming, web development and digital technology. Finished with a self-developed 2D game in Unity.', skills: ['Programming', 'Web', 'C# / Unity'], image: null },
-        { period: 'JUL 2024 — JUL 2025', title: 'Fibre Technician', place: 'Bara Montage Sverige AB', type: 'Employment', description: 'Installed, commissioned and troubleshot fibre and network infrastructure in residential environments. The role included fibre blowing and splicing, CAT6, media cabinets, routers, TV equipment, fault resolution and direct customer contact.', skills: ['Fibre', 'CAT6', 'Troubleshooting', 'Customers'], image: null },
-        { period: 'AUG 2025 — JUN 2026', title: 'Graduate Engineer, TE4', place: 'NTI Gymnasiet Helsingborg', type: 'Education', description: 'An intensive year covering software design, databases, APIs, architecture, agile methods and projects created for real-world use cases.', skills: ['React', 'Python', 'Databases', 'Agile'], image: null },
-        { period: 'SEP — NOV 2025', title: 'Innovation Lab', place: 'TrustScribe', type: 'Project / placement', description: 'Developed a local AI tool for secure transcription in a TE4 team, working from the requirements of an external stakeholder.', skills: ['Python', 'Local AI', 'Requirements', 'Presentation'], image: null },
-        { period: 'FEB — MAR 2026', title: 'International IT Placement', place: 'Ascencia Malta', type: 'Erasmus+', description: 'Worked on web development, visual design and planning an internal attendance and scheduling system in an English-speaking environment.', skills: ['English', 'Web', 'Design', 'Adaptability'], image: null },
-        { period: 'MAR — MAY 2026', title: 'AI & E-commerce Development', place: 'ZYNQ Media Group', type: 'Placement', description: 'Developed CopyForge, ConversionLens and CampaignForge from idea and requirements through prototype, testing and feedback-led improvement.', skills: ['AI workflows', 'E-commerce', 'UX', 'Independent work'], image: null },
+        { period: '2021 — 2024', title: 'Technology Programme', place: 'Hässleholm Technical School', type: 'Education', description: 'Built a broad technical foundation in programming, web development and digital technology. Finished with a self-developed 2D game in Unity.', skills: ['Programming', 'Web', 'C# / Unity'], image: 'hts' },
+        { period: 'JUL 2024 — JUL 2025', title: 'Fibre Technician', place: 'Bara Montage Sverige AB', type: 'Employment', description: 'Installed, commissioned and troubleshot fibre and network infrastructure in residential environments. The role included fibre blowing and splicing, CAT6, media cabinets, routers, TV equipment, fault resolution and direct customer contact.', skills: ['Fibre', 'CAT6', 'Troubleshooting', 'Customers'], image: 'fiber' },
+        { period: 'AUG 2025 — JUN 2026', title: 'Graduate Engineer, TE4', place: 'NTI Gymnasiet Helsingborg', type: 'Education', description: 'An intensive year covering software design, databases, APIs, architecture, agile methods and projects created for real-world use cases.', skills: ['React', 'Python', 'Databases', 'Agile'], image: 'te4' },
+        { period: 'SEP — NOV 2025', title: 'Innovation Lab', place: 'TrustScribe', type: 'Project / placement', description: 'Developed a local AI tool for secure transcription in a TE4 team, working from the requirements of an external stakeholder.', skills: ['Python', 'Local AI', 'Requirements', 'Presentation'], image: 'trustscribe' },
+        { period: 'FEB — MAR 2026', title: 'International IT Placement', place: 'Ascencia Malta', type: 'Erasmus+', description: 'Worked on web development, visual design and planning an internal attendance and scheduling system in an English-speaking environment.', skills: ['English', 'Web', 'Design', 'Adaptability'], image: 'malta' },
+        { period: 'MAR — MAY 2026', title: 'AI & E-commerce Development', place: 'ZYNQ Media Group', type: 'Placement', description: 'Developed CopyForge, ConversionLens and CampaignForge from idea and requirements through prototype, testing and feedback-led improvement.', skills: ['AI workflows', 'E-commerce', 'UX', 'Independent work'], image: 'zynq' },
       ],
     },
     skills: {

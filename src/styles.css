@@ -92,7 +92,8 @@ button { color: inherit; }
 .placeholder-grid { position: absolute; inset: 0; opacity: .5; background-image: linear-gradient(rgba(16,19,17,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(16,19,17,.08) 1px, transparent 1px); background-size: 32px 32px; }
 .placeholder::before { content: ""; position: absolute; width: 70%; aspect-ratio: 1; border-radius: 50%; background: var(--lime); opacity: .14; filter: blur(1px); }
 .placeholder-label { position: absolute; z-index: 3; bottom: 16px; left: 18px; border: 1px solid rgba(16,19,17,.15); padding: 7px 9px; background: rgba(240,238,231,.75); color: #4e544f; font-size: 9px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; backdrop-filter: blur(8px); }
-.placeholder-image { width: 100%; height: 100%; object-fit: cover; }
+.placeholder-image { position: absolute; z-index: 4; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s ease; }
+.placeholder-image.is-loaded { opacity: 1; }
 .portrait-silhouette { position: relative; z-index: 2; width: 75%; height: 80%; align-self: end; }
 .portrait-silhouette span { position: absolute; top: 5%; left: 50%; width: 38%; aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; background: #8f938d; }
 .portrait-silhouette i { position: absolute; right: 4%; bottom: -4%; left: 4%; height: 63%; border-radius: 48% 48% 0 0; background: #8f938d; }

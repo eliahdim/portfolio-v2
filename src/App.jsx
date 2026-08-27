@@ -5,6 +5,8 @@ import { Icon } from './icons.jsx';
 const FORMSPREE_ENDPOINT =
   import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xeelnlog';
 
+const IMAGE_EXTENSIONS = ['webp', 'avif', 'jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG'];
+
 function readRoute() {
   const parts = window.location.pathname.split('/').filter(Boolean);
   const stored = window.localStorage.getItem('portfolio-language');
@@ -150,12 +152,36 @@ function Eyebrow({ children, light = false }) {
   return <p className={`eyebrow ${light ? 'eyebrow--light' : ''}`}><span aria-hidden="true" />{children}</p>;
 }
 
-function PlaceholderVisual({ label, variant = 'default', image, alt = '' }) {
-  if (image) {
-    return <img className="placeholder-image" src={image} alt={alt} loading="lazy" />;
-  }
+function AutoImage({ name }) {
+  const [extensionIndex, setExtensionIndex] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setExtensionIndex(0);
+    setLoaded(false);
+  }, [name]);
+
+  if (!name || extensionIndex >= IMAGE_EXTENSIONS.length) return null;
+
   return (
-    <div className={`placeholder placeholder--${variant}`} role="img" aria-label={label}>
+    <img
+      aria-hidden="true"
+      alt=""
+      className={`placeholder-image ${loaded ? 'is-loaded' : ''}`}
+      loading="lazy"
+      src={`/images/${name}.${IMAGE_EXTENSIONS[extensionIndex]}`}
+      onLoad={() => setLoaded(true)}
+      onError={() => {
+        setLoaded(false);
+        setExtensionIndex((current) => current + 1);
+      }}
+    />
+  );
+}
+
+function PlaceholderVisual({ label, variant = 'default', image, alt = '' }) {
+  return (
+    <div className={`placeholder placeholder--${variant}`} role="img" aria-label={alt || label}>
       <div className="placeholder-grid" />
       {variant === 'portrait' && <div className="portrait-silhouette"><span /><i /></div>}
       {variant === 'trustscribe' && (
@@ -175,6 +201,7 @@ function PlaceholderVisual({ label, variant = 'default', image, alt = '' }) {
         <div className="goal-map"><span className="goal-root">1%</span><span className="goal-node goal-node--one" /><span className="goal-node goal-node--two" /><span className="goal-node goal-node--three" /><i className="goal-line goal-line--one" /><i className="goal-line goal-line--two" /><i className="goal-line goal-line--three" /></div>
       )}
       <span className="placeholder-label">{label}</span>
+      <AutoImage name={image} />
     </div>
   );
 }
@@ -194,7 +221,7 @@ function Hero({ data }) {
       </div>
       <div className="hero-visual">
         <div className="portrait-frame">
-          <PlaceholderVisual label={data.hero.portraitLabel} variant="portrait" alt={data.hero.portraitAlt} />
+          <PlaceholderVisual label={data.hero.portraitLabel} variant="portrait" image="portrait" alt={data.hero.portraitAlt} />
           <div className="portrait-caption">
             <span className="status-dot" />
             <div><strong>{data.hero.status}</strong><small>{data.hero.statusDetail}</small></div>
