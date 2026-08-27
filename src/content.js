@@ -164,12 +164,12 @@ export const content = {
             'En sammanhängande arbetsyta som hjälper e-handlare gå från produktinformation till användbart kampanjmaterial.',
           role: 'Utvecklare under praktik hos ZYNQ Media Group',
           problem:
-            'Att skapa konsekvent innehåll för e-post, sociala medier, annonser och produkttexter innebär många repetitiva steg och stor risk för ett splittrat resultat.',
+            'Att skapa konsekvent och säljande innehåll för flera marknadsföringskanaler tar mycket tid och kräver ofta upprepade manuella steg. Utmaningen var därför att effektivisera arbetet utan att tappa varumärkets ton, kvalitet eller möjligheten att iterera på innehållet.',
           approach:
-            'Jag utvecklade CopyForge för produkt- och kanaltexter samt CampaignForge för kompletta kampanjkoncept. Arbetet omfattade språkval, historik, versioner, regenerering av enskilda sektioner och återanvändning av varumärkesanpassade underlag.',
+            'Jag utvecklade CopyForge för produkt- och kanaltexter samt CampaignForge för kompletta marknadsföringskampanjer. Arbetet omfattade bland annat AI-generering, versionshantering, regenerering och förfining av enskilda delar, sparade produkter och kampanjer, varumärkesanpassning, användarkonton samt förbättringar av UI/UX utifrån återkommande feedback.',
           result:
-            'Projektet visar hur jag kan arbeta självständigt, iterera snabbt efter feedback och göra AI till en del av ett tydligt produktflöde – inte bara en fristående generator.',
-          highlights: ['Självständigt distansarbete', 'Produkt- och UX-fokus', 'Feedbackdriven iteration'],
+            'Resultatet blev två fungerande AI-baserade produkter där fokus inte bara ligger på att generera innehåll, utan på hela arbetsflödet kring att skapa, förbättra, spara och återanvända material. Projekten visar hur jag kan kombinera teknisk utveckling, AI, produktdesign och affärstänk för att bygga lösningar som faktiskt kan användas och säljas till företag.',
+          highlights: ['Versionshantering och förfining', 'Varumärkesanpassade flöden', 'Produkt- och affärsfokus'],
         },
         {
           ...sharedProjects['1percent'],
@@ -192,7 +192,7 @@ export const content = {
       eyebrow: 'Erfarenhet',
       title: 'Från fiber i fält till AI-produkter.',
       intro:
-        'Min väg har inte varit spikrak – och det är en styrka. Varje steg har lagt till en ny nivå av teknisk förståelse, ansvar och kommunikation.',
+        'Jag började med praktiskt arbete inom fiber, nätverk och kundnära felsökning. Under TE4 breddade jag erfarenheten med mjukvaruutveckling, lokala AI-verktyg, e-handel och praktik i både Sverige och Malta.',
       previous: 'Föregående erfarenhet',
       next: 'Nästa erfarenhet',
       placeholder: 'Bild kommer',
@@ -320,16 +320,16 @@ export const content = {
     },
     about: {
       eyebrow: 'Personen bakom tekniken',
-      title: 'Lugn i felsökningen. Nyfiken utanför den.',
+      title: 'Problemlösare på jobbet. Fotboll, gym och musik på fritiden.',
       paragraphs: [
-        'Jag är 21 år och bor i Tyringe i Skåne. Det jag gillar mest med IT är ögonblicket när ett rörigt problem börjar bli begripligt – och när en användare kan gå vidare tack vare en lösning som faktiskt håller.',
-        'Utanför tekniken driver jag musikprojektet Luvjah tillsammans med min mamma, fotograferar, följer fotboll och tränar. Det kreativa arbetet har lärt mig mycket om iteration, detaljer och att våga släppa något man tror på.',
+        'Jag är 21 år och bor i Tyringe i Skåne. Jag gillar IT eftersom jag får kombinera teknik, logik och kontakt med människor. Jag trivs särskilt när jag får sätta mig in i ett problem, hitta orsaken och se till att lösningen fungerar i praktiken.',
+        'På fritiden spelar och följer jag fotboll, tränar på gym och lyssnar mycket på musik. Jag tycker också om att prova nya tekniska verktyg och bygga mindre lösningar när jag får en idé.',
       ],
       cards: [
         { label: 'Bas', value: 'Tyringe / Hässleholm' },
         { label: 'Språk', value: 'Svenska & engelska' },
-        { label: 'Driver', value: 'Luvjah musikprojekt' },
-        { label: 'Gillar', value: 'Foto, fotboll & teknik' },
+        { label: 'Arbetssätt', value: 'Lugn, metodisk & nyfiken' },
+        { label: 'På fritiden', value: 'Fotboll, gym & musik' },
       ],
     },
     contact: {
@@ -446,10 +446,10 @@ export const content = {
           title: 'CampaignForge / CopyForge', category: 'AI workflows · E-commerce · Product design',
           summary: 'A connected workspace helping e-commerce teams move from product information to useful campaign assets.',
           role: 'Developer during a placement at ZYNQ Media Group',
-          problem: 'Creating consistent content for email, social media, ads and product pages involves repetitive work and a real risk of fragmented output.',
-          approach: 'I developed CopyForge for product and channel copy and CampaignForge for complete campaign concepts. The work included languages, history, versions, regenerating individual sections and reusing brand-aware input.',
-          result: 'The project shows how I work independently, iterate quickly from feedback and turn AI into part of a clear product workflow rather than a standalone generator.',
-          highlights: ['Independent remote work', 'Product and UX focus', 'Feedback-driven iteration'],
+          problem: 'Creating consistent and persuasive content across several marketing channels takes time and often requires repetitive manual work. The challenge was to make that process more efficient without losing the brand voice, quality or the ability to iterate on the material.',
+          approach: 'I developed CopyForge for product and channel copy and CampaignForge for complete marketing campaigns. The work included AI generation, version management, regenerating and refining individual assets, saved products and campaigns, brand adaptation, user accounts, and recurring UI/UX improvements based on feedback.',
+          result: 'The result was two functioning AI-based products focused not only on generating content, but on the complete workflow for creating, improving, saving and reusing material. The projects show how I combine technical development, AI, product design and commercial thinking to build tools that can genuinely be used and sold to businesses.',
+          highlights: ['Versioning and refinement', 'Brand-aware workflows', 'Product and commercial focus'],
         },
         {
           ...sharedProjects['1percent'],
@@ -465,7 +465,7 @@ export const content = {
     },
     experience: {
       eyebrow: 'Experience', title: 'From fibre in the field to AI products.',
-      intro: 'My route has not been linear — and that is a strength. Every step has added another layer of technical understanding, responsibility and communication.',
+      intro: 'I started with hands-on work in fibre, networks and customer-facing troubleshooting. During TE4, I broadened that experience with software development, local AI tools, e-commerce and work placements in both Sweden and Malta.',
       previous: 'Previous experience', next: 'Next experience', placeholder: 'Image coming',
       items: [
         { period: '2021 — 2024', title: 'Technology Programme', place: 'Hässleholm Technical School', type: 'Education', description: 'Built a broad technical foundation in programming, web development and digital technology. Finished with a self-developed 2D game in Unity.', skills: ['Programming', 'Web', 'C# / Unity'], image: 'hts' },
@@ -494,14 +494,14 @@ export const content = {
       ],
     },
     about: {
-      eyebrow: 'The person behind the technology', title: 'Calm while troubleshooting. Curious beyond it.',
+      eyebrow: 'The person behind the technology', title: 'Problem-solver at work. Football, training and music outside it.',
       paragraphs: [
-        'I am 21 and based in Tyringe in southern Sweden. What I enjoy most about IT is the moment when a messy problem starts making sense — and when a user can move forward because the solution actually holds.',
-        'Outside technology, I run the music project Luvjah with my mother, take photographs, follow football and train. Creative work has taught me a great deal about iteration, details and having the confidence to release something I believe in.',
+        'I am 21 and based in Tyringe in southern Sweden. I enjoy IT because it lets me combine technology, logic and contact with people. I am at my best when I can understand a problem, identify the cause and make sure the solution works in practice.',
+        'Outside work, I play and follow football, train at the gym and listen to a lot of music. I also enjoy exploring new technical tools and building smaller solutions whenever I get an idea.',
       ],
       cards: [
         { label: 'Based in', value: 'Tyringe / Hässleholm' }, { label: 'Languages', value: 'Swedish & English' },
-        { label: 'Runs', value: 'Luvjah music project' }, { label: 'Enjoys', value: 'Photography, football & tech' },
+        { label: 'Approach', value: 'Calm, methodical & curious' }, { label: 'Outside work', value: 'Football, training & music' },
       ],
     },
     contact: {
