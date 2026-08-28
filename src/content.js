@@ -261,31 +261,27 @@ export const content = {
     },
     skills: {
       eyebrow: 'Teknisk profil',
-      title: 'Bred nog att se helheten. Praktisk nog att lösa problemet.',
       groups: [
         {
           number: '01',
           title: 'Support & service',
-          description: 'Metodisk felsökning med användaren och verksamheten i fokus.',
           items: ['Användarsupport', 'Kundkontakt', 'Ärendedokumentation', 'Hårdvara', 'Microsoft 365'],
         },
         {
           number: '02',
           title: 'System & nätverk',
-          description: 'Från fysisk anslutning till klient, nätverk och operativsystem.',
           items: ['Windows', 'Linux', 'TCP/IP', 'DNS & DHCP', 'Fiber', 'CAT6'],
         },
         {
           number: '03',
           title: 'Utveckling',
-          description: 'Utvecklingsbakgrunden hjälper mig förstå vad som händer under ytan.',
           items: ['JavaScript', 'React', 'Python', 'Node / Express', 'SQL', 'API:er'],
         },
       ],
     },
     archive: {
       eyebrow: 'Fler projekt',
-      title: 'Nyfikenheten stannar inte vid tre case studies.',
+      title: 'Byggt under utbildning, praktik och på eget initiativ.',
       open: 'Öppna projekt',
       items: [
         {
@@ -477,15 +473,15 @@ export const content = {
       ],
     },
     skills: {
-      eyebrow: 'Technical profile', title: 'Broad enough to see the system. Practical enough to solve the problem.',
+      eyebrow: 'Technical profile',
       groups: [
-        { number: '01', title: 'Support & service', description: 'Methodical troubleshooting with the user and business in focus.', items: ['User support', 'Customer contact', 'Ticket documentation', 'Hardware', 'Microsoft 365'] },
-        { number: '02', title: 'Systems & networks', description: 'From physical connectivity to the client, network and operating system.', items: ['Windows', 'Linux', 'TCP/IP', 'DNS & DHCP', 'Fibre', 'CAT6'] },
-        { number: '03', title: 'Development', description: 'My software background helps me understand what is happening below the surface.', items: ['JavaScript', 'React', 'Python', 'Node / Express', 'SQL', 'APIs'] },
+        { number: '01', title: 'Support & service', items: ['User support', 'Customer contact', 'Ticket documentation', 'Hardware', 'Microsoft 365'] },
+        { number: '02', title: 'Systems & networks', items: ['Windows', 'Linux', 'TCP/IP', 'DNS & DHCP', 'Fibre', 'CAT6'] },
+        { number: '03', title: 'Development', items: ['JavaScript', 'React', 'Python', 'Node / Express', 'SQL', 'APIs'] },
       ],
     },
     archive: {
-      eyebrow: 'More work', title: 'Curiosity does not stop at three case studies.', open: 'Open project',
+      eyebrow: 'More work', title: 'Built through education, work placements and personal initiative.', open: 'Open project',
       items: [
         { title: 'Home-E', year: '2026', type: 'Hackathon · Vue / Electron', description: 'A family hub for tasks, meals, shopping and activities — built by a three-person team under time pressure.', href: 'https://github.com/Mykyta-G/Home-E' },
         { title: 'Ragazzi dei Profumi', year: '2026', type: 'Frontend · React / Vite', description: 'A visual product concept for fragrance samples with responsive navigation and individual product pages.', href: 'https://ragazzi-dei-profumi.vercel.app/' },
