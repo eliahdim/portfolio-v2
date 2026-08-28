@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { content, getProject, profile } from './content.js';
 import { Icon } from './icons.jsx';
 
@@ -155,7 +156,7 @@ function Eyebrow({ children, light = false }) {
   return <p className={`eyebrow ${light ? 'eyebrow--light' : ''}`}><span aria-hidden="true" />{children}</p>;
 }
 
-function AutoImage({ name }) {
+function AutoImage({ name, onResolved }) {
   const [extensionIndex, setExtensionIndex] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
@@ -166,14 +167,19 @@ function AutoImage({ name }) {
 
   if (!name || extensionIndex >= IMAGE_EXTENSIONS.length) return null;
 
+  const src = `/images/${name}.${IMAGE_EXTENSIONS[extensionIndex]}`;
+
   return (
     <img
       aria-hidden="true"
       alt=""
       className={`placeholder-image ${loaded ? 'is-loaded' : ''}`}
       loading="lazy"
-      src={`/images/${name}.${IMAGE_EXTENSIONS[extensionIndex]}`}
-      onLoad={() => setLoaded(true)}
+      src={src}
+      onLoad={() => {
+        setLoaded(true);
+        onResolved?.(src);
+      }}
       onError={() => {
         setLoaded(false);
         setExtensionIndex((current) => current + 1);
@@ -182,9 +188,52 @@ function AutoImage({ name }) {
   );
 }
 
-function PlaceholderVisual({ label, variant = 'default', image, alt = '' }) {
+function ImageLightbox({ src, alt, onClose }) {
+  const closeRef = useRef(null);
+  const swedish = document.documentElement.lang === 'sv';
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    closeRef.current?.focus();
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [onClose]);
+
+  return createPortal(
+    <div className="image-lightbox" role="dialog" aria-modal="true" aria-label={alt} onMouseDown={onClose}>
+      <button ref={closeRef} className="image-lightbox-close" type="button" onClick={onClose} aria-label={swedish ? 'Stäng bild' : 'Close image'}>
+        <Icon name="close" size={25} />
+      </button>
+      <figure className="image-lightbox-frame" onMouseDown={(event) => event.stopPropagation()}>
+        <img src={src} alt={alt} />
+        <figcaption>{alt}</figcaption>
+      </figure>
+    </div>,
+    document.body,
+  );
+}
+
+function PlaceholderVisual({ label, variant = 'default', image, alt = '', expandable = false }) {
+  const [resolvedSrc, setResolvedSrc] = useState(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const swedish = document.documentElement.lang === 'sv';
+
+  useEffect(() => {
+    setResolvedSrc(null);
+    setLightboxOpen(false);
+  }, [image]);
+
   return (
-    <div className={`placeholder placeholder--${variant}`} role="img" aria-label={alt || label}>
+    <div className={`placeholder placeholder--${variant}`} role={expandable ? undefined : 'img'} aria-label={expandable ? undefined : alt || label}>
       <div className="placeholder-grid" />
       {variant === 'portrait' && <div className="portrait-silhouette"><span /><i /></div>}
       {variant === 'trustscribe' && (
@@ -204,7 +253,18 @@ function PlaceholderVisual({ label, variant = 'default', image, alt = '' }) {
         <div className="goal-map"><span className="goal-root">1%</span><span className="goal-node goal-node--one" /><span className="goal-node goal-node--two" /><span className="goal-node goal-node--three" /><i className="goal-line goal-line--one" /><i className="goal-line goal-line--two" /><i className="goal-line goal-line--three" /></div>
       )}
       <span className="placeholder-label">{label}</span>
-      <AutoImage name={image} />
+      <AutoImage name={image} onResolved={expandable ? setResolvedSrc : undefined} />
+      {expandable && resolvedSrc && (
+        <button
+          className="image-expand-trigger"
+          type="button"
+          onClick={() => setLightboxOpen(true)}
+          aria-label={swedish ? `Visa hela bilden: ${alt}` : `View full image: ${alt}`}
+        >
+          <span><Icon name="arrowUpRight" size={18} /></span>
+        </button>
+      )}
+      {lightboxOpen && <ImageLightbox src={resolvedSrc} alt={alt} onClose={() => setLightboxOpen(false)} />}
     </div>
   );
 }
@@ -306,7 +366,7 @@ function FeaturedProjects({ lang, data, navigate }) {
             <article className={`featured-project featured-project--${project.accent} reveal`} key={project.slug}>
               <div className="project-visual-wrap">
                 <span className="project-number">{project.number}</span>
-                <PlaceholderVisual label={data.placeholder} variant={project.slug} image={project.image} alt={project.title} />
+                <PlaceholderVisual label={data.placeholder} variant={project.slug} image={project.image} alt={project.title} expandable />
               </div>
               <div className="project-copy">
                 <div className="project-meta"><span>{project.category}</span><span>{project.year}</span></div>
@@ -489,7 +549,7 @@ function CaseStudyPage({ lang, data, project, navigate, setLanguage }) {
           <div className="shell">
             <a className="case-back" href={`/${lang}#work`} onClick={(event) => { event.preventDefault(); navigate(`/${lang}#work`); setTimeout(() => document.getElementById('work')?.scrollIntoView(), 0); }}><Icon name="arrowLeft" size={18} />{data.projects.back}</a>
             <div className="case-heading"><span>{project.number} / 03</span><div><p>{project.category} · {project.year}</p><h1>{project.title}</h1><p className="case-summary">{project.summary}</p></div></div>
-            <div className="case-main-visual"><PlaceholderVisual label={data.projects.placeholder} variant={project.slug} image={project.image} alt={project.title} /></div>
+            <div className="case-main-visual"><PlaceholderVisual label={data.projects.placeholder} variant={project.slug} image={project.image} alt={project.title} expandable /></div>
           </div>
         </section>
         <section className="case-content section section--paper">
