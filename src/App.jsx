@@ -7,6 +7,10 @@ const FORMSPREE_ENDPOINT =
 
 const IMAGE_EXTENSIONS = ['webp', 'avif', 'jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG'];
 
+if ('scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
+}
+
 function readRoute() {
   const parts = window.location.pathname.split('/').filter(Boolean);
   const stored = window.localStorage.getItem('portfolio-language');
@@ -326,7 +330,12 @@ function Experience({ data }) {
   const railRef = useRef(null);
 
   useEffect(() => {
-    railRef.current?.querySelector(`[data-index="${active}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const rail = railRef.current;
+    const selected = rail?.querySelector(`[data-index="${active}"]`);
+    if (!rail || !selected) return;
+
+    const centeredPosition = selected.offsetLeft - (rail.clientWidth - selected.offsetWidth) / 2;
+    rail.scrollTo({ left: Math.max(0, centeredPosition), behavior: 'smooth' });
   }, [active]);
 
   const move = (direction) => setActive((value) => (value + direction + data.items.length) % data.items.length);
@@ -518,8 +527,18 @@ export default function App() {
   useRevealAnimations(`${lang}-${slug || 'home'}`);
 
   useEffect(() => {
-    if (!slug && window.location.hash) setTimeout(() => document.querySelector(window.location.hash)?.scrollIntoView(), 20);
-  }, [slug]);
+    if (slug) return undefined;
+
+    const timeout = window.setTimeout(() => {
+      if (window.location.hash) {
+        document.querySelector(window.location.hash)?.scrollIntoView();
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
+    }, 20);
+
+    return () => window.clearTimeout(timeout);
+  }, [lang, slug]);
 
   useEffect(() => {
     if (slug && !project) navigate(`/${lang}`);
