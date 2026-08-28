@@ -436,12 +436,12 @@ function Skills({ data }) {
   return (
     <section className="skills section">
       <div className="shell">
-        <div className="section-heading reveal"><Eyebrow>{data.eyebrow}</Eyebrow><h2>{data.title}</h2></div>
+        <div className="skills-heading reveal"><Eyebrow>{data.eyebrow}</Eyebrow></div>
         <div className="skill-groups">
           {data.groups.map((group) => (
             <article className="skill-group reveal" key={group.number}>
               <div className="skill-group-head"><span>{group.number}</span><Icon name={group.number === '01' ? 'spark' : group.number === '02' ? 'terminal' : 'arrowUpRight'} /></div>
-              <h3>{group.title}</h3><p>{group.description}</p>
+              <h3>{group.title}</h3>
               <ul>{group.items.map((item) => <li key={item}><span />{item}</li>)}</ul>
             </article>
           ))}
