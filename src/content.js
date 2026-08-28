@@ -65,7 +65,7 @@ export const content = {
       titleBefore: 'Jag får teknik att fungera',
       titleAccent: 'för människor.',
       intro:
-        'Jag kombinerar praktisk erfarenhet av fiber, nätverk och kundnära felsökning med en bakgrund inom mjukvaruutveckling. Resultatet är att jag både kan lösa problemet framför mig och förstå systemet bakom det.',
+        'Jag kombinerar praktisk erfarenhet av fiber, nätverk och kundnära felsökning med en bakgrund inom mjukvaruutveckling. Nu söker jag en junior roll inom IT-support, onsite IT eller som IT-tekniker där jag får kombinera teknisk problemlösning med kontakt med användare.',
       primary: 'Se hur jag arbetar',
       secondary: 'Utvalda projekt',
       cv: 'Ladda ner CV',
@@ -375,7 +375,7 @@ export const content = {
       titleBefore: 'I make technology work',
       titleAccent: 'for people.',
       intro:
-        'I combine hands-on experience in fibre, networks and customer-facing troubleshooting with a software engineering background. That means I can solve the problem in front of me and understand the system behind it.',
+        'I combine hands-on experience in fibre, networks and customer-facing troubleshooting with a software engineering background. I am now looking for a junior role in IT support, onsite IT or as an IT technician where I can combine technical problem-solving with user contact.',
       primary: 'See how I work',
       secondary: 'Selected work',
       cv: 'Download résumé',
