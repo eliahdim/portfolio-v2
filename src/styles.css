@@ -214,8 +214,9 @@ button { color: inherit; }
 .fiber-video-card:hover .fiber-video-play, .fiber-video-card:focus-visible .fiber-video-play { border-color: var(--lime); background: var(--lime-dark); transform: translate(-50%, -50%) scale(1.07); }
 .fiber-video-meta { position: absolute; z-index: 2; right: 13px; bottom: 13px; left: 13px; display: flex; align-items: center; justify-content: space-between; padding: 9px 11px; background: rgba(16,19,17,.78); font-family: monospace; backdrop-filter: blur(8px); }
 .fiber-video-meta strong { color: var(--lime); font-size: 10px; }.fiber-video-meta small { color: #c8cdc8; font-size: 9px; }
-.video-lightbox-frame { display: grid; place-items: center; max-width: calc(100vw - 92px); max-height: calc(100vh - 70px); margin: 0; }
-.video-lightbox-frame video { width: auto; height: auto; max-width: calc(100vw - 92px); max-height: calc(100vh - 120px); background: #000; box-shadow: 0 28px 90px rgba(0,0,0,.48); }
+.video-lightbox { background: #050706; backdrop-filter: none; -webkit-backdrop-filter: none; }
+.video-lightbox-frame { display: grid; place-items: center; max-width: calc(100vw - 92px); max-height: calc(100vh - 70px); margin: 0; isolation: isolate; }
+.video-lightbox-frame video { display: block; width: auto; height: auto; max-width: calc(100vw - 92px); max-height: calc(100vh - 120px); background: #000; box-shadow: 0 28px 90px rgba(0,0,0,.48); transform: translateZ(0); backface-visibility: hidden; }
 .video-lightbox-frame figcaption { justify-self: start; margin-top: 12px; color: #c6cbc6; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .timeline-copy { display: flex; flex-direction: column; justify-content: center; padding: 60px 65px; }
 .timeline-card-meta { display: flex; justify-content: space-between; margin-bottom: 32px; color: var(--lime); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
