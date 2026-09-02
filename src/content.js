@@ -225,7 +225,7 @@ export const content = {
           description:
             'Ett intensivt år med mjukvarudesign, databaser, API:er, arkitektur, agila arbetssätt och projekt för verkliga användningsområden.',
           skills: ['React', 'Python', 'Databaser', 'Agilt arbete'],
-          image: 'te4',
+          image: 'nti',
         },
         {
           period: 'SEP — NOV 2025',
@@ -466,7 +466,7 @@ export const content = {
       items: [
         { period: '2021 — 2024', title: 'Technology Programme', place: 'Hässleholm Technical School', type: 'Education', description: 'Built a broad technical foundation in programming, web development and digital technology. Finished with a self-developed 2D game in Unity.', skills: ['Programming', 'Web', 'C# / Unity'], image: 'hts' },
         { period: 'JUL 2024 — JUL 2025', title: 'Fibre Technician', place: 'Bara Montage Sverige AB', type: 'Employment', description: 'Installed, commissioned and troubleshot fibre and network infrastructure in residential environments. The role included fibre blowing and splicing, CAT6, media cabinets, routers, TV equipment, fault resolution and direct customer contact.', skills: ['Fibre', 'CAT6', 'Troubleshooting', 'Customers'], image: 'fiber' },
-        { period: 'AUG 2025 — JUN 2026', title: 'Graduate Engineer, TE4', place: 'NTI Gymnasiet Helsingborg', type: 'Education', description: 'An intensive year covering software design, databases, APIs, architecture, agile methods and projects created for real-world use cases.', skills: ['React', 'Python', 'Databases', 'Agile'], image: 'te4' },
+        { period: 'AUG 2025 — JUN 2026', title: 'Graduate Engineer, TE4', place: 'NTI Gymnasiet Helsingborg', type: 'Education', description: 'An intensive year covering software design, databases, APIs, architecture, agile methods and projects created for real-world use cases.', skills: ['React', 'Python', 'Databases', 'Agile'], image: 'nti' },
         { period: 'SEP — NOV 2025', title: 'Innovation Lab', place: 'TrustScribe', type: 'Project / placement', description: 'Developed a local AI tool for secure transcription in a TE4 team, working from the requirements of an external stakeholder.', skills: ['Python', 'Local AI', 'Requirements', 'Presentation'], image: 'trustscribe' },
         { period: 'FEB — MAR 2026', title: 'International IT Placement', place: 'Ascencia Malta', type: 'Erasmus+', description: 'Worked on web development, visual design and planning an internal attendance and scheduling system in an English-speaking environment.', skills: ['English', 'Web', 'Design', 'Adaptability'], image: 'malta' },
         { period: 'MAR — MAY 2026', title: 'AI & E-commerce Development', place: 'ZYNQ Media Group', type: 'Placement', description: 'Developed CopyForge, ConversionLens and CampaignForge from idea and requirements through prototype, testing and feedback-led improvement.', skills: ['AI workflows', 'E-commerce', 'UX', 'Independent work'], image: 'zynq' },

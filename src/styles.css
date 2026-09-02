@@ -207,8 +207,8 @@ button { color: inherit; }
 .timeline-media--videos > span { top: 16px; bottom: auto; }
 .fiber-videos { height: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; background: #303530; }
 .fiber-video-card { position: relative; min-width: 0; overflow: hidden; border: 0; padding: 0; background: #090b0a; color: var(--white); cursor: pointer; }
-.fiber-video-card video { width: 100%; height: 100%; object-fit: contain; pointer-events: none; transition: transform .35s ease, opacity .35s ease; }
-.fiber-video-card:hover video { opacity: .82; transform: scale(1.015); }
+.fiber-video-card img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; transition: transform .35s ease, opacity .35s ease; }
+.fiber-video-card:hover img { opacity: .82; transform: scale(1.015); }
 .fiber-video-play { position: absolute; z-index: 2; top: 50%; left: 50%; display: grid; place-items: center; width: 58px; height: 58px; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; background: rgba(16,19,17,.72); transform: translate(-50%, -50%); backdrop-filter: blur(8px); transition: background .2s, border-color .2s, transform .2s; }
 .fiber-video-play i { width: 0; height: 0; margin-left: 4px; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 11px solid currentColor; }
 .fiber-video-card:hover .fiber-video-play, .fiber-video-card:focus-visible .fiber-video-play { border-color: var(--lime); background: var(--lime-dark); transform: translate(-50%, -50%) scale(1.07); }

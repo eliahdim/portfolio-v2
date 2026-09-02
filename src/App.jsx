@@ -156,7 +156,7 @@ function Eyebrow({ children, light = false }) {
   return <p className={`eyebrow ${light ? 'eyebrow--light' : ''}`}><span aria-hidden="true" />{children}</p>;
 }
 
-function AutoImage({ name, onResolved }) {
+function AutoImage({ name, onResolved, eager = false }) {
   const [extensionIndex, setExtensionIndex] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
@@ -174,7 +174,8 @@ function AutoImage({ name, onResolved }) {
       aria-hidden="true"
       alt=""
       className={`placeholder-image ${loaded ? 'is-loaded' : ''}`}
-      loading="lazy"
+      loading={eager ? 'eager' : 'lazy'}
+      fetchPriority={eager ? 'high' : 'auto'}
       src={src}
       onLoad={() => {
         setLoaded(true);
@@ -248,7 +249,7 @@ function VideoLightbox({ src, label, onClose }) {
         <Icon name="close" size={25} />
       </button>
       <figure className="video-lightbox-frame" onMouseDown={(event) => event.stopPropagation()}>
-        <video src={src} autoPlay controls playsInline />
+        <video src={src} autoPlay controls playsInline preload="auto" />
         <figcaption>{label}</figcaption>
       </figure>
     </div>,
@@ -271,7 +272,12 @@ function FiberVideos() {
         const label = swedish ? `Fiberarbete · Timelapse ${number}` : `Fibre work · Timelapse ${number}`;
         return (
           <button className="fiber-video-card" type="button" key={video.src} onClick={() => setActiveVideo({ ...video, label })} aria-label={swedish ? `Spela timelapse ${index + 1}` : `Play timelapse ${index + 1}`}>
-            <video src={`${video.src}#t=0.1`} muted playsInline preload="metadata" aria-hidden="true" />
+            <img
+              src={`/images/fiber-timelapse-${number}-poster.webp`}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+            />
             <span className="fiber-video-play" aria-hidden="true"><i /></span>
             <span className="fiber-video-meta"><strong>{number}</strong><small>{video.duration}</small></span>
           </button>
@@ -282,7 +288,7 @@ function FiberVideos() {
   );
 }
 
-function PlaceholderVisual({ label, variant = 'default', image, alt = '', expandable = false }) {
+function PlaceholderVisual({ label, variant = 'default', image, alt = '', expandable = false, eager = false }) {
   const [resolvedSrc, setResolvedSrc] = useState(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const swedish = document.documentElement.lang === 'sv';
@@ -313,7 +319,7 @@ function PlaceholderVisual({ label, variant = 'default', image, alt = '', expand
         <div className="goal-map"><span className="goal-root">1%</span><span className="goal-node goal-node--one" /><span className="goal-node goal-node--two" /><span className="goal-node goal-node--three" /><i className="goal-line goal-line--one" /><i className="goal-line goal-line--two" /><i className="goal-line goal-line--three" /></div>
       )}
       <span className="placeholder-label">{label}</span>
-      <AutoImage name={image} onResolved={expandable ? setResolvedSrc : undefined} />
+      <AutoImage name={image} onResolved={expandable ? setResolvedSrc : undefined} eager={eager} />
       {expandable && resolvedSrc && (
         <button
           className="image-expand-trigger"
@@ -344,7 +350,7 @@ function Hero({ data }) {
       </div>
       <div className="hero-visual">
         <div className="portrait-frame">
-          <PlaceholderVisual label={data.hero.portraitLabel} variant="portrait" image="portrait" alt={data.hero.portraitAlt} />
+          <PlaceholderVisual label={data.hero.portraitLabel} variant="portrait" image="portrait" alt={data.hero.portraitAlt} eager />
           <div className="portrait-caption">
             <span className="status-dot" />
             <div><strong>{data.hero.status}</strong><small>{data.hero.statusDetail}</small></div>
