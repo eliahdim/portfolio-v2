@@ -277,7 +277,7 @@ function Hero({ data }) {
         <h1>{data.hero.titleBefore} <em>{data.hero.titleAccent}</em></h1>
         <p className="hero-intro">{data.hero.intro}</p>
         <div className="hero-actions">
-          <LinkButton href="#method" onClick={(event) => { event.preventDefault(); document.getElementById('method')?.scrollIntoView({ behavior: 'smooth' }); }}>{data.hero.primary}</LinkButton>
+          <LinkButton href="#experience" onClick={(event) => { event.preventDefault(); document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }); }}>{data.hero.primary}</LinkButton>
           <LinkButton href="#work" variant="text" onClick={(event) => { event.preventDefault(); document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' }); }}>{data.hero.secondary}</LinkButton>
         </div>
         <a className="cv-link" href={profile.cv} download><Icon name="download" size={17} />{data.hero.cv}</a>
@@ -618,7 +618,8 @@ function HomeWithLanguage({ lang, data, navigate, setLanguage }) {
     <>
       <Header lang={lang} data={data} setLanguage={setLanguage} navigate={navigate} />
       <main id="main-content">
-        <Hero data={data} /><ProofBar items={data.proof} /><Diagnostic data={data.diagnostic} />
+        <Hero data={data} /><ProofBar items={data.proof} />
+        {/* Diagnostic is preserved above for a future real-world troubleshooting case. */}
         <FeaturedProjects lang={lang} data={data.projects} navigate={navigate} />
         <Experience data={data.experience} /><Skills data={data.skills} /><Archive data={data.archive} />
         <About data={data.about} /><Contact lang={lang} data={data.contact} />
