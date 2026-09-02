@@ -222,6 +222,66 @@ function ImageLightbox({ src, alt, onClose }) {
   );
 }
 
+function VideoLightbox({ src, label, onClose }) {
+  const closeRef = useRef(null);
+  const swedish = document.documentElement.lang === 'sv';
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    closeRef.current?.focus();
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [onClose]);
+
+  return createPortal(
+    <div className="image-lightbox video-lightbox" role="dialog" aria-modal="true" aria-label={label} onMouseDown={onClose}>
+      <button ref={closeRef} className="image-lightbox-close" type="button" onClick={onClose} aria-label={swedish ? 'Stäng video' : 'Close video'}>
+        <Icon name="close" size={25} />
+      </button>
+      <figure className="video-lightbox-frame" onMouseDown={(event) => event.stopPropagation()}>
+        <video src={src} autoPlay controls playsInline />
+        <figcaption>{label}</figcaption>
+      </figure>
+    </div>,
+    document.body,
+  );
+}
+
+function FiberVideos() {
+  const [activeVideo, setActiveVideo] = useState(null);
+  const swedish = document.documentElement.lang === 'sv';
+  const videos = [
+    { src: '/videos/fiber-timelapse-01.mp4', duration: '00:34' },
+    { src: '/videos/fiber-timelapse-02.mp4', duration: '00:28' },
+  ];
+
+  return (
+    <div className="fiber-videos" aria-label={swedish ? 'Timelapses från fiberarbete' : 'Fibre work timelapses'}>
+      {videos.map((video, index) => {
+        const number = String(index + 1).padStart(2, '0');
+        const label = swedish ? `Fiberarbete · Timelapse ${number}` : `Fibre work · Timelapse ${number}`;
+        return (
+          <button className="fiber-video-card" type="button" key={video.src} onClick={() => setActiveVideo({ ...video, label })} aria-label={swedish ? `Spela timelapse ${index + 1}` : `Play timelapse ${index + 1}`}>
+            <video src={`${video.src}#t=0.1`} muted playsInline preload="metadata" aria-hidden="true" />
+            <span className="fiber-video-play" aria-hidden="true"><i /></span>
+            <span className="fiber-video-meta"><strong>{number}</strong><small>{video.duration}</small></span>
+          </button>
+        );
+      })}
+      {activeVideo && <VideoLightbox src={activeVideo.src} label={activeVideo.label} onClose={() => setActiveVideo(null)} />}
+    </div>
+  );
+}
+
 function PlaceholderVisual({ label, variant = 'default', image, alt = '', expandable = false }) {
   const [resolvedSrc, setResolvedSrc] = useState(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -415,7 +475,12 @@ function Experience({ data }) {
             ))}
           </div>
           <div className="timeline-card" aria-live="polite">
-            <div className="timeline-media"><PlaceholderVisual label={data.placeholder} variant="experience" image={item.image} alt={item.title} /><span>{String(active + 1).padStart(2, '0')} / {String(data.items.length).padStart(2, '0')}</span></div>
+            <div className={`timeline-media ${item.image === 'fiber' ? 'timeline-media--videos' : ''}`}>
+              {item.image === 'fiber'
+                ? <FiberVideos />
+                : <PlaceholderVisual label={data.placeholder} variant="experience" image={item.image} alt={item.title} />}
+              <span>{String(active + 1).padStart(2, '0')} / {String(data.items.length).padStart(2, '0')}</span>
+            </div>
             <div className="timeline-copy">
               <div className="timeline-card-meta"><span>{item.type}</span><span>{item.period}</span></div>
               <h3>{item.title}</h3><p className="timeline-place"><Icon name="location" size={17} />{item.place}</p><p>{item.description}</p>
